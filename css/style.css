@@ -28,10 +28,15 @@ a {
 img {
     display: block;
 }
+
 .container {
-    max-width: 1158px;
-    padding: 0 15px;
-    margin: 0 auto;
+    max-width: 320px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
 }
 
 .visually-hidden {
@@ -205,11 +210,10 @@ img {
 /*---------------- FEATURES------------------- */
 
 .features {
-   
 }
 
 .features-icon-box {
-    border: 1px solid #8e8f99;
+    /* border: 1px solid #8e8f99;
     border-radius: 4px;
     width: 264px;
     height: 112px;
@@ -217,25 +221,27 @@ img {
     background-color: #f4f4fd;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    display: none;
     }
 
-.features-item{
-    width: calc((100% - 3 * 24px) / 4);
+.features-item {
+    width: 100%;
 }
 
 .features-list {
     display: flex;
-    align-items: center;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 72px;
 }
 
 .features-subtitle {
     margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 120%;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 111%;
     letter-spacing: 0.02em;
+    text-align: center;
     color: #2e2f42;
 }
 
@@ -819,4 +825,48 @@ textarea::placeholder {
 .modal-btn:focus {
     background-color: #404bbf;
     border: none;
+}
+
+/*---------------- MEDIA ------------------- */
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .features-icon-box {
+        border: 1px solid #8e8f99;
+        border-radius: 4px;
+        width: 264px;
+        height: 112px;
+        margin-bottom: 8px;
+        background-color: #f4f4fd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .features-item {
+        width: calc((100% - 3 * 24px) / 4);
+    }
+
+    .features-list {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .features-subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 120%;
+    }
 }
