@@ -44,20 +44,6 @@ button {
     margin-right: auto;
 }
 
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-}
-
-@media screen and (min-width: 1158px) {
-    .container {
-        max-width: 1158px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -75,6 +61,25 @@ button {
 .section {
     padding-top: 96px;
     padding-bottom: 96px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
 }
 
 /*---------------- HEADER ------------------- */
@@ -304,6 +309,10 @@ button {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.current {
+    position: relative;
+    color: #404bbf;
+}
 
 .mobile-menu-nav-link:hover,
 .mobile-menu-nav-link:focus,
@@ -354,11 +363,6 @@ button {
     }
 }
 
-@media screen and (min-width: 1158px) {
-    .mobile-menu {
-        display: none;
-    }
-}
 
 /*----------------Section Hero ------------------- */
 
@@ -374,6 +378,15 @@ button {
     margin: 0 auto;
 }
 
+@media screen and (min-resolution: 2dppx),
+(min-resolution: 192dpi),
+(-webkit-min-device-pixel-ratio: 2) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)),
+            url(../images/Dark-bg-mob-2x.jpg)
+    }
+}
 .hero-title {
     margin-right: auto;
     margin-left: auto;
@@ -426,18 +439,38 @@ button {
         padding-left: 0;
         padding-right: 0;
     }
+
+    @media screen and (min-resolution: 2dppx),
+    (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)),
+                url(../images/Dark-bg-tab-2x.jpg)
+        }
+    }
 }
 
 @media screen and (min-width: 1158px) {
     .hero {
         padding-top: 188px;
         padding-bottom: 188px;
-        max-width: 1158px;
+        max-width: 1440px;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.jpg);
     }
 
     .hero-title {
         margin-bottom: 48px;
+    }
+
+    @media screen and (min-resolution: 2dppx),
+    (min-resolution: 192dpi),
+    (-webkit-min-device-pixel-ratio: 2) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)),
+                url(../images/people-office-2x.jpg)
+        }
     }
 }
 
@@ -525,9 +558,9 @@ button {
 
 .team-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 72px;
 }
 
 .team-title {
@@ -603,23 +636,43 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-    .team-list {
+.team > .container {
+    width: 100%;
+    max-width: 768px;
+    padding-left: 108px;
+    padding-right: 108px;
+    }
+
+.team-list {
         display: flex;
-        align-items: center;
         column-gap: 24px;
         row-gap: 64px;
+        align-items: center;
     }
-}
+
+} 
 
 @media screen and (min-width: 1158px) {
+.team>.container {
+        max-width: 1158px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+.team-list {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+.team-item {
+    width: calc((100% - 3 * 24px) / 4);
+    }
 
 }
 
 /*---------------- Portfolio ------------------- */
 
-.cover-text {
-    display: none;
-}
 
 .portfolio-title {
     margin-bottom: 72px;
@@ -630,6 +683,22 @@ button {
     text-transform: capitalize;
     text-align: center;
     color: #2e2f42;
+}
+
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+}
+
+.portfolio-item {
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    background: #fff;
+}
+
+.cover-text {
+    display: none;
 }
 
 .portfolio-blok {
@@ -654,15 +723,62 @@ button {
     color: #434455;
 }
 
-.portfolio-item {
-    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-    background: #fff;
+@media screen and (min-width: 768px) {
+    .portfolio-list {
+        justify-content: center;
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+
+    .portfolio-item {
+        width: calc((100% - 24px) / 2);
+    }
 }
 
-.portfolio-list {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
+@media screen and (min-width: 1158px) {
+    .portfolio-list {
+        flex-wrap: wrap;
+        row-gap: 48px;
+        width: 1128px;
+        background-color: #FFFFFF;
+    }
+
+    .portfolio-item {
+        width: calc((100% - 2 * 24px) / 3);
+        transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cover-wrapper {
+        position: relative;
+        overflow: hidden;
+}
+
+    .cover-text {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #f4f4fd;
+        background-color: #4d5ae5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 40px 32px;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(100%);
+        overflow: auto;
+    }
+
+    .portfolio-item:hover .cover-text {
+        transform: translateY(0)
+    }
+
+    .portfolio-item:hover,
+    .portfolio-item:focus {
+        box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    }
+
 }
 
 /*---------------- FOOTER ------------------- */
@@ -670,8 +786,7 @@ button {
 .wrapper-footer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 72px;
+    row-gap: 72px;
 }
 
 .footer-logo {
@@ -682,6 +797,7 @@ button {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #4d5ae5;
+    padding-left: 86px;
     margin-bottom: 16px;
     display: inline-block;
 }
@@ -702,7 +818,7 @@ button {
 }
 
 .page-footer-text {
-    max-width: 264px;
+    max-width: 288px;
     font-size: 16px;
     line-height: 150%;
     letter-spacing: 0.02em;
@@ -711,7 +827,9 @@ button {
 
 .footer-soc-link {
     display: block;
-
+    margin: 0 auto;
+    width: 208px;
+    height: 80px;
 }
 
 .footer-soc-text {
@@ -752,6 +870,11 @@ button {
     fill: #f4f4fd;
 }
 
+.footer-soc-icon-link:hover,
+.footer-soc-icon-link:focus {
+    background-color: #31d0aa;
+}
+
 .subscribe-text {
     font-weight: 500;
     font-size: 16px;
@@ -762,27 +885,26 @@ button {
     text-align: center;
 }
 
-.subscribe-form {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
 .subscribe-input {
     border: 1px solid #fff;
     border-radius: 4px;
     width: 288px;
     height: 40px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-    opacity: 0.3;
-    background-color: transparent;
     font-size: 12px;
     line-height: 2;
     letter-spacing: 0.04em;
     color: #fff;
+    opacity: 0.6;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 16px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    margin-bottom: 16px;
+}
+
+.subscribe-input::placeholder {
+    color: #fff;
 }
 
 .subscribe-btn {
@@ -814,14 +936,92 @@ button {
     background-color: #404bbf;
 }
 
+@media screen and (min-width: 768px) {
+    .page-footer>.container {
+        width: 100%;
+        max-width: 768px;
+        padding-left: 108px;
+        padding-right: 108px;
+    }
+
+    .wrapper-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .container-footer {
+        margin-right: 24px;
+    }
+
+    .footer-logo {
+        padding-left: 0;
+    }
+
+    .page-footer-text {
+        max-width: 264px;
+    }
+
+    .subscribe-text {
+        text-align: start;
+    }
+
+    .subscribe-form {
+        display: flex;
+        gap: 24px;
+    }
+
+    .subscribe-input {
+        width: 264px;
+    }
+
+    .footer-soc-link {
+        margin: 0;
+    }
+
+    .footer-soc-text {
+        text-align: start;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .page-footer>.container {
+        width: 100%;
+        max-width: 1440px;
+        padding-left: 156px;
+        padding-right: 156px;
+    }
+
+    .wrapper-footer {
+        padding: 0;
+    }
+
+    .container-footer {
+        margin-right: 120px;
+        margin-left: 0;
+    }
+
+    .page-footer {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .footer-soc-link {
+        display: block;
+        margin-right: 80px;
+    }
+
+    
+}
+
 /*----------------Backdrop ------------------- */
 
 .backdrop {
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
     opacity: 0;
     visibility: hidden;
@@ -838,7 +1038,7 @@ button {
 
 .modal {
     width: 288px;
-    min-height: 584px;
+    min-height: 623px;
     border-radius: 4px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
         0 2px 1px 0 rgba(0, 0, 0, 0.2);
@@ -847,7 +1047,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 72px 24px 24px 24px;
+    padding: 72px 16px 24px 16px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -868,6 +1068,11 @@ button {
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-btn-icon {
+    fill: #2e2f42;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal-close-btn:hover,
 .modal-close-btn:focus {
     background-color: #404bbf;
@@ -877,12 +1082,6 @@ button {
 .modal-close-btn:hover>svg,
 .modal-close-btn:focus>svg {
     fill: #FFFFFF;
-}
-
-
-.modal-btn-icon {
-    fill: #2e2f42;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-title {
@@ -1034,7 +1233,6 @@ textarea::placeholder {
 }
 
 .modal-btn {
-
     min-width: 169px;
     height: 56px;
     font-weight: 500;
@@ -1057,4 +1255,27 @@ textarea::placeholder {
 .modal-btn:focus {
     background-color: #404bbf;
     border: none;
+}
+
+@media screen and (min-width: 768px) {
+    .modal {
+        width: 408px;
+        padding: 72px 24px 24px 24px;
+    }
+
+    .modal-form {
+        width: 360px;
+    }
+    
+    .modal-input {
+        width: 360px;
+    }
+
+    .modal-textarea {
+        width: 360px;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+
 }
